@@ -1,0 +1,32 @@
+<div class="container mt-5">
+  <div class="card shadow p-4">
+    <h3 class="text-center mb-4">Payment Page</h3>
+
+    <p class="lead text-center">
+      You are about to pay <strong>₹{{ grandTotal }}</strong>
+    </p>
+
+    <div class="text-center">
+      <h5>Select Payment Method</h5>
+      <div class="d-grid gap-2 col-6 mx-auto mt-3">
+        <button class="btn btn-outline-success" (click)="proceed('Cash')">
+          💵 Cash
+        </button>
+        <button class="btn btn-outline-primary" (click)="proceed('Credit Card')">
+          💳 Credit Card
+        </button>
+        <button class="btn btn-outline-dark" (click)="proceed('PayPal/UPI')">
+          💻 PayPal / UPI
+        </button>
+      </div>
+    </div>
+
+    <div *ngIf="paymentDone" class="alert alert-success text-center mt-4">
+      ✅ Payment successful via <strong>{{ selectedMethod }}</strong>! Redirecting to home...
+    </div>
+
+    <div class="text-center mt-4">
+      <a routerLink="/check-out">← Back to Checkout</a>
+    </div>
+  </div>
+</div>
