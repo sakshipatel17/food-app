@@ -1,0 +1,223 @@
+<div class="container mt-5">
+  <!-- Error message -->
+  <div
+    *ngIf="errorMsg"
+    class="alert alert-danger d-flex align-items-center"
+    style="background-color: rgba(201, 123, 123, 0.1); border: 1px solid #C97B7B; color: #C97B7B; border-radius: var(--radius-control); padding: 16px; margin: 20px auto; max-width: 600px;"
+  >
+    <i class="fa-solid fa-circle-exclamation me-2"></i>
+    <div>{{ errorMsg }}</div>
+  </div>
+
+  <!-- Processing payment state -->
+  <div
+    *ngIf="isProcessingPayment"
+    class="d-flex align-items-center justify-content-center"
+    style="min-height: 50vh"
+  >
+    <div class="text-center">
+      <div class="spinner-border text-gold" role="status" style="color: var(--color-gold);">
+        <span class="visually-hidden">Processing payment...</span>
+      </div>
+      <p class="mt-3" style="color: var(--color-muted);">Verifying your payment...</p>
+    </div>
+  </div>
+
+  <div *ngIf="!isProcessingPayment" class="row">
+    <div class="mt-5"></div>
+    <div class="col-lg-5 checkout-form mt-3">
+      <h4>Order Form</h4>
+      <form (ngSubmit)="checkout()" [formGroup]="checkoutForm">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input
+            name="name"
+            formControlName="name"
+            id="name"
+            type="text"
+            class="form-control"
+          />
+          <div
+            *ngIf="
+              this.checkoutForm.get('name')?.errors &&
+              this.checkoutForm.get('name')?.touched
+            "
+            class="error-message show"
+          >
+            Invalid name
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email ID</label>
+          <input
+            name="email"
+            formControlName="email"
+            id="email"
+            type="email"
+            class="form-control"
+          />
+          <div
+            *ngIf="
+              this.checkoutForm.get('email')?.errors &&
+              this.checkoutForm.get('email')?.touched
+            "
+            class="error-message show"
+          >
+            Invalid email
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="mobile">Mobile No</label>
+          <input
+            name="mobile"
+            formControlName="mobile"
+            id="mobile"
+            type="text"
+            class="form-control"
+          />
+          <div
+            *ngIf="
+              this.checkoutForm.get('mobile')?.errors &&
+              this.checkoutForm.get('mobile')?.touched
+            "
+            class="error-message show"
+          >
+            Invalid mobile no (10 digits required)
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="address">Address</label>
+          <input
+            name="address"
+            formControlName="address"
+            id="address"
+            type="text"
+            class="form-control"
+          />
+          <div
+            *ngIf="
+              this.checkoutForm.get('address')?.errors &&
+              this.checkoutForm.get('address')?.touched
+            "
+            class="error-message show"
+          >
+            Invalid address
+          </div>
+        </div>
+        
+        <!-- Payment Method Selection -->
+        <div class="payment-method-selection">
+          <label class="payment-label">Payment Method</label>
+          <div class="payment-method-option" 
+               [class.selected]="paymentMethod === 'cod'"
+               (click)="selectPaymentMethod('cod')">
+            <div class="payment-method-content">
+              <i class="fa-solid fa-money-bill-wave"></i>
+              <span>Cash on Delivery</span>
+            </div>
+          </div>
+          <div class="payment-method-option"
+               [class.selected]="paymentMethod === 'card'"
+               (click)="selectPaymentMethod('card')">
+            <div class="payment-method-content">
+              <i class="fa-solid fa-credit-card"></i>
+              <span>Card Payment</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card Details Form (shown only when Card Payment is selected) -->
+        <div *ngIf="paymentMethod === 'card'" class="card-details-form">
+          <div class="form-group">
+            <label for="cardNumber">Card Number</label>
+            <input
+              name="cardNumber"
+              [(ngModel)]="cardNumber"
+              id="cardNumber"
+              type="text"
+              class="form-control"
+              placeholder="1234 5678 9012 3456"
+              maxlength="19"
+            />
+          </div>
+          <div class="form-group">
+            <label for="cardName">Name on Card</label>
+            <input
+              name="cardName"
+              [(ngModel)]="cardName"
+              id="cardName"
+              type="text"
+              class="form-control"
+              placeholder="John Doe"
+            />
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <div class="form-group">
+                <label for="cardExpiry">Expiry (MM/YY)</label>
+                <input
+                  name="cardExpiry"
+                  [(ngModel)]="cardExpiry"
+                  id="cardExpiry"
+                  type="text"
+                  class="form-control"
+                  placeholder="MM/YY"
+                  maxlength="5"
+                />
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group">
+                <label for="cardCvv">CVV</label>
+                <input
+                  name="cardCvv"
+                  [(ngModel)]="cardCvv"
+                  id="cardCvv"
+                  type="password"
+                  class="form-control"
+                  placeholder="123"
+                  maxlength="4"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <button
+          type="submit"
+          class="btn-submit mt-3"
+          [disabled]="isLoading"
+        >
+          <span *ngIf="!isLoading">{{ paymentMethod === 'cod' ? 'Place Order' : 'Pay Now' }}</span>
+          <span *ngIf="isLoading" class="spinner"></span>
+        </button>
+      </form>
+    </div>
+    <div class="col-lg-1"></div>
+    <div class="col-lg-6 mt-3">
+      <!-- product list -->
+      <ul class="order-summary">
+        <h5>Order Items:</h5>
+        <li
+          *ngFor="let product of products"
+          class="order-item"
+        >
+          <img
+            [src]="product.image"
+            [alt]="product.title"
+          />
+          <h6>{{ product.title }}</h6>
+          <div class="count">{{ product.count }}</div>
+          <div class="price">₹{{ product.price }}</div>
+        </li>
+        <div class="order-total">
+          <div class="d-flex justify-content-center">
+            <div class="w-75 text-center" style="color: var(--color-gold-light); font-size: 1.2rem; font-weight: bold;">
+              Grand Total: ₹{{ total }}
+            </div>
+          </div>
+        </div>
+      </ul>
+    </div>
+  </div>
+</div>

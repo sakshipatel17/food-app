@@ -1,0 +1,10 @@
+.profile-card {
+    max-width: 600px;
+    margin: auto;
+    border-radius: 20px;
+  }
+  .list-group-item {
+    font-size: 1.1rem;
+    padding: 15px;
+  }
+  

@@ -1,0 +1,155 @@
+<!-- header -->
+<app-header></app-header>
+
+<!-- Error message -->
+<div
+  *ngIf="errorMessage"
+  class="alert alert-danger d-flex align-items-center"
+  style="background-color: rgba(201, 123, 123, 0.1); border: 1px solid #C97B7B; color: #C97B7B; border-radius: var(--radius-control); padding: 16px; margin: 20px auto; max-width: 600px;"
+>
+  <i class="fa-solid fa-circle-exclamation me-2"></i>
+  <div>{{ errorMessage }}</div>
+</div>
+
+<!-- Success message -->
+<div
+  *ngIf="successMessage"
+  class="alert alert-success d-flex align-items-center"
+  style="background-color: rgba(123, 168, 138, 0.1); border: 1px solid var(--color-success); color: var(--color-success); border-radius: var(--radius-control); padding: 16px; margin: 20px auto; max-width: 600px;"
+>
+  <i class="fa-solid fa-circle-check me-2"></i>
+  <div>{{ successMessage }}</div>
+</div>
+
+<!-- Product section-->
+<section class="py-5 mt-5">
+  <div class="container px-3 px-lg-5 my-3">
+    <div class="product-detail">
+      <div class="product-image-wrapper">
+        <img
+          class="product-image"
+          [src]="product.image"
+          [alt]="product.title"
+        />
+        <div class="product-rating-badge">
+          <i class="fa-regular fa-star"></i> {{ product.rating.rate }}
+        </div>
+      </div>
+      <div class="product-details">
+        <span class="category-label">{{ product.category }}</span>
+        <h1 class="product-title">
+          {{ product.title }}
+          <div class="wishlist-actions">
+            <span
+              *ngIf="!email"
+              class="wishlist-heart"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+              ><i class="fa fa-heart"></i>
+            </span>
+            <span
+              (click)="removeFromWishlist(product.id)"
+              *ngIf="email && wishlist.indexOf(product.id) >= 0"
+              class="wishlist-heart active"
+              ><i class="fa fa-heart"></i>
+            </span>
+            <span
+              (click)="addToWishlist(product.id)"
+              *ngIf="email && wishlist.indexOf(product.id) == -1"
+              class="wishlist-heart"
+              ><i class="fa fa-heart"></i>
+            </span>
+          </div>
+        </h1>
+        <div class="product-price">
+          <span class="original-price">₹{{ (product.price + 10).toFixed(2) }}</span>
+          <span class="current-price">₹{{ product.price }}</span>
+        </div>
+        <p class="product-description">
+          {{ product.description }}
+        </p>
+        <div class="product-actions">
+          <button
+            *ngIf="!email"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal2"
+            class="btn-add-cart"
+            type="button"
+          >
+            <i class="fa-solid fa-cart-plus"></i>
+            Add to cart
+          </button>
+          <button
+            (click)="removeFromCart(product.id)"
+            *ngIf="email && cart.indexOf(product.id) >= 0"
+            class="btn-remove-cart"
+            type="button"
+          >
+            <i class="fa-solid fa-ban"></i>
+            Remove from cart
+          </button>
+          <button
+            (click)="addToCart(product.id)"
+            *ngIf="email && cart.indexOf(product.id) == -1"
+            class="btn-add-cart"
+            type="button"
+          >
+            <i class="fa-solid fa-cart-plus"></i>
+            Add to cart
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Modal for login alert wishlist -->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content p-3 bg-danger-subtle">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5 text-danger" id="exampleModalLabel">
+          <i class="fa-solid fa-user-plus me-3"></i>
+          <strong>Please Login for wishlisting a product !</strong>
+        </h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div
+  class="modal fade"
+  id="exampleModal2"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content p-3 bg-danger-subtle">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5 text-danger" id="exampleModalLabel">
+          <i class="fa-solid fa-user-plus me-3"></i>
+          <strong>Please Login for add to cart !</strong>
+        </h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+    </div>
+  </div>
+</div>

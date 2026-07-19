@@ -1,0 +1,160 @@
+<!-- please login -->
+<div
+  *ngIf="!email"
+  class="d-flex align-items-center justify-content-center login-required"
+  style="min-height: 100vh"
+>
+  <div class="text-center">
+    <img
+      src="https://startup.mp.gov.in/assets/img/login-bg.png"
+      alt=""
+      width="350px"
+    />
+    <p class="fs-1">
+      <span class="fw-bolder" style="color: var(--color-gold-light);">Please Login ! </span>
+    </p>
+    <p class="lead">Get access to your Orders, Wishlist and Recommendations</p>
+    <a routerLink="" class="btn btn-action">Go Home</a>
+  </div>
+</div>
+
+<!-- Loading state -->
+<div
+  *ngIf="email && isLoading"
+  class="d-flex align-items-center justify-content-center"
+  style="min-height: 100vh"
+>
+  <div class="text-center">
+    <div class="spinner-border text-gold" role="status" style="color: var(--color-gold);">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <p class="mt-3" style="color: var(--color-muted);">Loading your cart...</p>
+  </div>
+</div>
+
+<!-- Error message -->
+<div
+  *ngIf="errorMessage"
+  class="alert alert-danger d-flex align-items-center"
+  style="background-color: rgba(201, 123, 123, 0.1); border: 1px solid #C97B7B; color: #C97B7B; border-radius: var(--radius-control); padding: 16px; margin: 20px auto; max-width: 600px;"
+>
+  <i class="fa-solid fa-circle-exclamation me-2"></i>
+  <div>{{ errorMessage }}</div>
+</div>
+
+<!-- Success message -->
+<div
+  *ngIf="successMessage"
+  class="alert alert-success d-flex align-items-center"
+  style="background-color: rgba(123, 168, 138, 0.1); border: 1px solid var(--color-success); color: var(--color-success); border-radius: var(--radius-control); padding: 16px; margin: 20px auto; max-width: 600px;"
+>
+  <i class="fa-solid fa-circle-check me-2"></i>
+  <div>{{ successMessage }}</div>
+</div>
+
+<div
+  *ngIf="email && !isLoading && products.length == 0"
+  class="d-flex align-items-center justify-content-center empty-cart"
+  style="min-height: 100vh"
+>
+  <div class="text-center">
+    <img
+      src="https://cdni.iconscout.com/illustration/premium/thumb/empty-cart-2130356-1800917.png"
+      alt=""
+      width="350px"
+    />
+    <p class="fs-1">
+      <span class="fw-bolder" style="color: var(--color-gold-light);">Your cart is empty ! </span>
+    </p>
+    <p class="lead">
+      Looks like you have not added anything to your cart,<br />
+      Go ahead and explore our great foods.
+    </p>
+    <a routerLink="" class="btn btn-action">Go Home</a>
+  </div>
+</div>
+
+<!-- cart section -->
+<div *ngIf="email && !isLoading && products.length != 0" class="container mt-5">
+  <div class="row">
+    <div class="mt-5"></div>
+    <div class="col-lg-8">
+      <!-- product list -->
+      <ul class="rounded p-0">
+        <li
+          *ngFor="let product of products"
+          class="cart-item"
+          [class.removing]="removingProductId === product.id"
+        >
+          <div class="col text-center">
+            <img
+              [src]="product.image"
+              [alt]="product.title"
+            />
+          </div>
+          <div class="col">
+            <a class="btn cart-item-title text-start">
+              {{ product.title }}
+            </a>
+          </div>
+          <div class="col">
+            <div class="quantity-stepper">
+              <button
+                class="quantity-btn"
+                (click)="decrementQuantity(product.id)"
+              >
+                -
+              </button>
+              <span class="quantity-value">{{ product.count }}</span>
+              <button
+                class="quantity-btn"
+                (click)="incrementQuantity(product.id)"
+              >
+                +
+              </button>
+            </div>
+          </div>
+          <div class="col cart-item-price">₹{{ product.price }}</div>
+          <div class="col">
+            <a (click)="removeFromCart(product.id)" class="btn" style="color: var(--color-burgundy);"
+              ><i class="fa-solid fa-trash"></i
+            ></a>
+          </div>
+        </li>
+      </ul>
+      <div class="mt-4 mb-3">
+        <button (click)="emptyCart(email)" class="btn btn-secondary">
+          Empty Cart
+        </button>
+        <a routerLink="" class="btn btn-action ms-5">Shop More</a>
+      </div>
+    </div>
+    <div class="col-lg-1"></div>
+    <div class="col-lg-3 cart-summary">
+      <div>
+        <p>
+          Total:
+          <span style="color: var(--color-gold-light);"> {{ total }} </span>
+        </p>
+        <p>
+          No of Items: <span>{{ products.length }}</span>
+        </p>
+        <h5 class="grand-total" [class.highlight]="grandTotalHighlight">
+          Grant Total:₹<span>{{ total }}</span>
+        </h5>
+      </div>
+
+      <hr />
+
+      <div class="mt-2">
+        <button
+          routerLink="/check-out"
+          style="float: right"
+          class="btn btn-action"
+        >
+          Check Out
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

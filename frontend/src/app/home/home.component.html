@@ -1,0 +1,141 @@
+<!-- Section-->
+<section class="py-5">
+  <div class="container px-2 px-lg-2 mt-5">
+    <!-- Masthead header-->
+    <header class="masthead">
+      <div class="container px-5">
+        <div class="row gx-5 align-items-center">
+          <div class="col-lg-6">
+            <!-- Masthead text and app badges-->
+            <div class="mb-5 mb-lg-0 text-center text-lg-start hero-text">
+              <p class="hero-eyebrow animate-fade-up">Fine dining, delivered</p>
+              <h1 *ngIf="!username" class="hero-heading animate-fade-up">
+                It's not just food, it's an experience.
+              </h1>
+              <h1 *ngIf="username" class="hero-heading animate-fade-up">
+                Hey {{ username }}, hungry for something exceptional?
+              </h1>
+              <p class="hero-subheading animate-fade-up">
+                Fine food, delivered with taste. Experience culinary excellence from our kitchen to your doorstep.
+              </p>
+              <a class="hero-cta animate-fade-up" routerLink="/menu">
+                Explore Menu
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-6 align-items-center">
+            <div class="hero-illustration animate-fade-in-scale">
+              <svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                <path d="M2 12h20"/>
+                <path d="M12 2a15.3 15.3 0 0 0-4 10 15.3 15.3 0 0 0 4 10 15.3 15.3 0 0 0 4-10 15.3 15.3 0 0 0-4-10z"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="product-grid">
+      <div
+        *ngFor="let product of products | filter : searchItem : 'title'"
+      >
+        <div *ngIf="product === -1" class="d-flex justify-content-center mb-5">
+          <div class="text-center">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/1178/1178479.png"
+              alt=""
+              class="w-25"
+            />
+
+            <p class="fs-3">
+              <span class="text-danger">Sorry, no results found! </span>
+            </p>
+            <p class="lead" style="width: 50vw">
+              Please check the spelling or try searching for something else
+            </p>
+            <!-- <a routerLink="" class="btn btn-danger">Go Home</a> -->
+          </div>
+        </div>
+
+        <div *ngIf="product !== -1" class="card" appScrollAnimate>
+          <!-- Product image-->
+          <div class="card-image-wrapper">
+            <img
+              class="card-img-top"
+              [src]="product.image"
+              [alt]="product.title"
+            />
+            <div class="card-rating-badge">
+              <i class="fa-regular fa-star"></i> {{ product.rating.rate }}
+            </div>
+          </div>
+          <!-- Product details-->
+          <div class="card-body">
+            <span class="category-label">{{
+              product.category
+            }}</span>
+            <a
+              class="card-title-link"
+              routerLink="/view-product/{{ product.id }}"
+            >
+              <h5 class="card-title">{{ product.title }}</h5>
+            </a>
+            <div class="card-meta">
+              <span class="card-price">₹{{ product.price }}</span>
+              <div class="card-actions">
+                <span
+                  *ngIf="!email"
+                  class="wishlist-heart"
+                  data-bs-toggle="modal"
+                  data-bs-target="#exampleModal"
+                  ><i class="fa fa-heart"></i>
+                </span>
+                <span
+                  (click)="removeFromWishlist(product.id)"
+                  *ngIf="email && wishlist.indexOf(product.id) >= 0"
+                  class="wishlist-heart active"
+                  [class.pulse]="animatedWishlistItem === product.id"
+                  ><i class="fa fa-heart"></i>
+                </span>
+                <span
+                  (click)="addToWishlist(product.id)"
+                  *ngIf="email && wishlist.indexOf(product.id) == -1"
+                  class="wishlist-heart"
+                  [class.pulse]="animatedWishlistItem === product.id"
+                  ><i class="fa fa-heart"></i>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Modal for login alert wishlist -->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content p-3 bg-danger-subtle">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5 text-danger" id="exampleModalLabel">
+          <i class="fa-solid fa-user-plus me-3"></i>
+          <strong>Please Login for wishlisting a product !</strong>
+        </h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,93 @@
+.order-confirmation-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-control);
+  padding: 40px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.success-icon {
+  font-size: 80px;
+  color: var(--color-success);
+  margin-bottom: 20px;
+  animation: scaleIn 0.5s ease-out;
+}
+
+@keyframes scaleIn {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.confirmation-heading {
+  color: var(--color-cream);
+  font-family: var(--font-serif);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.confirmation-subheading {
+  color: var(--color-muted);
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+}
+
+.order-details-section {
+  background-color: rgba(201, 168, 108, 0.05);
+  border: 1px solid var(--color-gold-light);
+  border-radius: var(--radius-control);
+  padding: 25px;
+  margin-bottom: 30px;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--color-divider);
+}
+
+.detail-row:last-child {
+  border-bottom: none;
+}
+
+.detail-label {
+  color: var(--color-muted);
+  font-weight: 500;
+}
+
+.detail-value {
+  color: var(--color-cream);
+  font-weight: 600;
+}
+
+.brand-section {
+  padding: 20px 0;
+  border-top: 1px solid var(--color-divider);
+  margin-bottom: 20px;
+}
+
+.brand-logo {
+  color: var(--color-gold);
+}
+
+.brand-text {
+  color: var(--color-cream);
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}

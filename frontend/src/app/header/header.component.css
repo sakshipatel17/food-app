@@ -1,0 +1,190 @@
+.profile li a {
+  cursor: pointer;
+}
+
+#mainNav {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-divider);
+  box-shadow: none;
+  transition: background-color 200ms ease;
+}
+
+#mainNav.scrolled {
+  background-color: rgba(14, 12, 10, 0.95);
+  backdrop-filter: blur(10px);
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  transition: opacity var(--dur-fast) ease;
+}
+
+.navbar-brand:hover {
+  opacity: 0.9;
+}
+
+.brand-logo {
+  stroke: var(--color-gold);
+  width: 32px;
+  height: 32px;
+}
+
+.brand-text {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: 24px;
+  color: var(--color-cream);
+  letter-spacing: 0.02em;
+}
+
+.navbar {
+  gap: 24px;
+}
+
+.nav-link {
+  color: var(--color-cream) !important;
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  transition: color var(--dur-fast) ease;
+}
+
+.nav-link:hover {
+  color: var(--color-gold) !important;
+}
+
+.nav-link i {
+  color: var(--color-gold);
+}
+
+.navbar-toggler {
+  border: 1px solid var(--color-divider);
+}
+
+.navbar-toggler-icon {
+  filter: invert(1);
+}
+
+.cart-badge {
+  background-color: var(--color-gold);
+  color: var(--color-surface) !important;
+  border-radius: 50%;
+  padding: 4px 8px;
+  font-size: 12px;
+  font-weight: 600;
+  transition: transform 300ms var(--ease-out);
+}
+
+.cart-badge.animate {
+  animation: badgeBounce 300ms var(--ease-out);
+}
+
+@keyframes badgeBounce {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.3);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.btn {
+  border-radius: var(--radius-control);
+  font-weight: 500;
+  color: var(--color-cream);
+}
+
+.form-control {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-control);
+  padding: 8px 12px;
+  font-size: 14px;
+  color: var(--color-cream);
+}
+
+.form-control::placeholder {
+  color: var(--color-muted);
+}
+
+.form-control:focus {
+  border-color: var(--color-gold);
+  box-shadow: 0 0 0 3px rgba(201, 166, 103, 0.1);
+  outline: none;
+  background-color: var(--color-surface-2);
+}
+
+.dropdown-menu {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+}
+
+.dropdown-item {
+  color: var(--color-cream);
+  transition: background-color var(--dur-fast) ease;
+}
+
+.dropdown-item:hover {
+  background-color: var(--color-surface-2);
+  color: var(--color-gold);
+}
+
+.dropdown-item i {
+  color: var(--color-gold);
+}
+
+.modal-header {
+  background-color: var(--color-surface-2) !important;
+  border-bottom: 1px solid var(--color-divider);
+}
+
+.modal-title {
+  color: var(--color-cream) !important;
+  font-family: var(--font-heading);
+  font-weight: 500;
+}
+
+.modal-content {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-card);
+}
+
+.modal-body {
+  color: var(--color-cream);
+}
+
+.btn-close {
+  filter: invert(1);
+}
+
+.btn-danger {
+  background-color: var(--color-gold);
+  border-color: var(--color-gold);
+  color: var(--color-surface);
+}
+
+.btn-danger:hover {
+  background-color: var(--color-gold-light);
+  border-color: var(--color-gold-light);
+  color: var(--color-surface);
+}
+
+.text-primary {
+  color: var(--color-gold) !important;
+}
+
+.text-danger {
+  color: var(--color-burgundy) !important;
+}

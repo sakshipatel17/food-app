@@ -1,0 +1,60 @@
+<app-header></app-header>
+
+<section class="py-5 mt-5">
+  <div class="container px-3 px-lg-5 my-3">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="order-confirmation-card">
+          <div class="text-center mb-4">
+            <div class="success-icon">
+              <i class="fa-solid fa-circle-check"></i>
+            </div>
+            <h2 class="confirmation-heading">Order Confirmed!</h2>
+            <p class="confirmation-subheading">Thank you for your order</p>
+          </div>
+
+          <div class="order-details-section">
+            <div class="detail-row">
+              <span class="detail-label">Order ID:</span>
+              <span class="detail-value">{{ orderId }}</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Total Amount:</span>
+              <span class="detail-value">₹{{ total }}</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Payment Method:</span>
+              <span class="detail-value">
+                <span *ngIf="paymentMethod === 'cod'">Cash on delivery — pay ₹{{ total }} when your order arrives</span>
+                <span *ngIf="paymentMethod === 'card'">Paid by card ending in {{ cardLastFour }}</span>
+              </span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Customer:</span>
+              <span class="detail-value">{{ username || 'Guest' }}</span>
+            </div>
+          </div>
+
+          <div class="brand-section">
+            <div class="d-flex align-items-center justify-content-center">
+              <svg class="brand-logo" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 21a2 2 0 0 0-2-2h-7l-4-4-4 4H2a2 2 0 0 0-2 2"/>
+                <circle cx="12" cy="7" r="4"/>
+              </svg>
+              <span class="brand-text ms-2">Noir Table</span>
+            </div>
+          </div>
+
+          <div class="action-buttons mt-4">
+            <button (click)="goToHome()" class="btn btn-action me-3">
+              <i class="fa-solid fa-house me-2"></i>Back to Menu
+            </button>
+            <button (click)="goToOrders()" class="btn btn-secondary">
+              <i class="fa-solid fa-list me-2"></i>My Orders
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
