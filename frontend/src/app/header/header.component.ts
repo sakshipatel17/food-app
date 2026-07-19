@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { Component, OnInit, Input, OnDestroy, HostListener } from '@angular/core';
+=======
+import { Component, OnInit, Input } from '@angular/core';
+>>>>>>> 8c08a43b65d17692221f92e776ba12e9af1c2c8c
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -9,15 +13,22 @@ import { ApiService } from '../services/api.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
 })
+<<<<<<< HEAD
 export class HeaderComponent implements OnInit, OnDestroy {
+=======
+export class HeaderComponent implements OnInit {
+>>>>>>> 8c08a43b65d17692221f92e776ba12e9af1c2c8c
   searchTerm: string = '';
   errorMsg: string = '';
   successMsg: any = false;
   cartCount: number = 0;
   @Input() searchBarHide: boolean = false;
+<<<<<<< HEAD
   cartBadgeAnimation: boolean = false;
   isScrolled: boolean = false;
   logoAnimated: boolean = false;
+=======
+>>>>>>> 8c08a43b65d17692221f92e776ba12e9af1c2c8c
 
   username: string = '';
   email: string = '';
@@ -134,6 +145,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.username = localStorage.getItem('username') || '';
     this.api.cartCount.subscribe((data: any) => {
+<<<<<<< HEAD
       const prevCount = this.cartCount;
       this.cartCount = data.length;
       if (this.cartCount > prevCount) {
@@ -150,6 +162,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
       this.logoAnimated = true;
       sessionStorage.setItem('logoAnimated', 'true');
     }
+=======
+      this.cartCount = data.length;
+    });
+>>>>>>> 8c08a43b65d17692221f92e776ba12e9af1c2c8c
   }
 
   search(event: any) {
@@ -157,6 +173,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
     this.api.searchKey.next(this.searchTerm.trim());
   }
+<<<<<<< HEAD
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
@@ -167,4 +184,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     // Cleanup if needed
   }
+=======
+>>>>>>> 8c08a43b65d17692221f92e776ba12e9af1c2c8c
 }

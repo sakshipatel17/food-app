@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+<<<<<<< HEAD
     "start": "node index.js",
+=======
+>>>>>>> 8c08a43b65d17692221f92e776ba12e9af1c2c8c
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -14,7 +17,11 @@
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^6.9.1",
+<<<<<<< HEAD
     "ngx-paypal": "^11.0.0",
     "razorpay": "^2.9.8"
+=======
+    "ngx-paypal": "^11.0.0"
+>>>>>>> 8c08a43b65d17692221f92e776ba12e9af1c2c8c
   }
 }

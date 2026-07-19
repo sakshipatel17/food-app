@@ -15,7 +15,10 @@ export class HomeComponent implements OnInit {
   wishlistMsg: string = '';
   wishlist: number[] = [];
   cart: number[] = [];
+<<<<<<< HEAD
   animatedWishlistItem: number | null = null;
+=======
+>>>>>>> 8c08a43b65d17692221f92e776ba12e9af1c2c8c
 
   constructor(private api: ApiService, private router: Router) {}
 
@@ -45,7 +48,10 @@ export class HomeComponent implements OnInit {
   }
 
   addToWishlist(productId: any) {
+<<<<<<< HEAD
     this.animatedWishlistItem = productId;
+=======
+>>>>>>> 8c08a43b65d17692221f92e776ba12e9af1c2c8c
     this.api.addToWishlist(this.email, productId).subscribe(
       // success case
       (result: any) => {
@@ -55,19 +61,29 @@ export class HomeComponent implements OnInit {
         this.getMyItems();
         setTimeout(() => {
           this.wishlistMsg = '';
+<<<<<<< HEAD
           this.animatedWishlistItem = null;
         }, 250);
+=======
+        }, 5000);
+>>>>>>> 8c08a43b65d17692221f92e776ba12e9af1c2c8c
       },
       // error msg
       (result: any) => {
         this.wishlistMsg = result.error.message;
+<<<<<<< HEAD
         this.animatedWishlistItem = null;
+=======
+>>>>>>> 8c08a43b65d17692221f92e776ba12e9af1c2c8c
       }
     );
   }
 
   removeFromWishlist(productId: any) {
+<<<<<<< HEAD
     this.animatedWishlistItem = productId;
+=======
+>>>>>>> 8c08a43b65d17692221f92e776ba12e9af1c2c8c
     this.api.removeFromWishlist(this.email, productId).subscribe(
       // success case
       (result: any) => {
@@ -79,13 +95,20 @@ export class HomeComponent implements OnInit {
         this.getMyItems();
         setTimeout(() => {
           this.wishlistMsg = '';
+<<<<<<< HEAD
           this.animatedWishlistItem = null;
         }, 250);
+=======
+        }, 5000);
+>>>>>>> 8c08a43b65d17692221f92e776ba12e9af1c2c8c
       },
       // error msg
       (result: any) => {
         this.wishlistMsg = result.error.message;
+<<<<<<< HEAD
         this.animatedWishlistItem = null;
+=======
+>>>>>>> 8c08a43b65d17692221f92e776ba12e9af1c2c8c
       }
     );
   }

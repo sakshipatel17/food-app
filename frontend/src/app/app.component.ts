@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+<<<<<<< HEAD
 import {
   trigger,
   style,
@@ -8,10 +9,13 @@ import {
   animateChild,
   group,
 } from '@angular/animations';
+=======
+>>>>>>> 8c08a43b65d17692221f92e776ba12e9af1c2c8c
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
+<<<<<<< HEAD
   styleUrls: ['./app.component.css'],
   animations: [
     trigger('routeAnimations', [
@@ -52,4 +56,10 @@ export class AppComponent {
   prepareRoute(outlet: any) {
     return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
   }
+=======
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  title = 'frontend';
+>>>>>>> 8c08a43b65d17692221f92e776ba12e9af1c2c8c
 }

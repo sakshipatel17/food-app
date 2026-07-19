@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
+<<<<<<< HEAD
 import { HttpClient } from '@angular/common/http';
+=======
+>>>>>>> 8c08a43b65d17692221f92e776ba12e9af1c2c8c
 
 @Component({
   selector: 'app-footer',
@@ -7,6 +10,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent {
+<<<<<<< HEAD
   newsletterEmail: string = '';
   newsletterMessage: string = '';
   newsletterMessageType: 'success' | 'error' = 'success';
@@ -58,4 +62,7 @@ export class FooterComponent {
       this.newsletterMessage = '';
     }, 5000);
   }
+=======
+
+>>>>>>> 8c08a43b65d17692221f92e776ba12e9af1c2c8c
 }

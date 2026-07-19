@@ -380,6 +380,7 @@ const addToCheckout = (
   });
 };
 
+<<<<<<< HEAD
 // NEW CART FUNCTIONS
 
 // Get cart by userId
@@ -748,6 +749,8 @@ const subscribeNewsletter = (email) => {
   });
 };
 
+=======
+>>>>>>> 8c08a43b65d17692221f92e776ba12e9af1c2c8c
 module.exports = {
   allProducts,
   viewProduct,
@@ -762,6 +765,7 @@ module.exports = {
   emptyCart,
   addToCheckout,
   getMyOrders,
+<<<<<<< HEAD
   // New cart functions
   getCart,
   addToCartNew,
@@ -775,4 +779,6 @@ module.exports = {
   createCardOrder,
   // Newsletter function
   subscribeNewsletter,
+=======
+>>>>>>> 8c08a43b65d17692221f92e776ba12e9af1c2c8c
 };

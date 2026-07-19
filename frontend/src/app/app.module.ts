@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+<<<<<<< HEAD
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+=======
+>>>>>>> 8c08a43b65d17692221f92e776ba12e9af1c2c8c
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,10 +22,13 @@ import { FilterPipe } from './pipes/filter.pipe';
 import { NgxPayPalModule } from 'ngx-paypal';
 import { ProfileComponent } from './profile/profile.component';
 import { PaymentComponent } from './payment/payment.component';
+<<<<<<< HEAD
 import { ScrollAnimateDirective } from './scroll-animate.directive';
 import { OrderConfirmationComponent } from './order-confirmation/order-confirmation.component';
 import { MyOrdersComponent } from './my-orders/my-orders.component';
 import { MenuComponent } from './menu/menu.component';
+=======
+>>>>>>> 8c08a43b65d17692221f92e776ba12e9af1c2c8c
 
 @NgModule({
   declarations: [
@@ -39,6 +45,7 @@ import { MenuComponent } from './menu/menu.component';
     FilterPipe,
     ProfileComponent,
     PaymentComponent,
+<<<<<<< HEAD
     ScrollAnimateDirective,
     OrderConfirmationComponent,
     MyOrdersComponent,
@@ -47,6 +54,11 @@ import { MenuComponent } from './menu/menu.component';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+=======
+  ],
+  imports: [
+    BrowserModule,
+>>>>>>> 8c08a43b65d17692221f92e776ba12e9af1c2c8c
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,

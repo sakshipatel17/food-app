@@ -1,7 +1,16 @@
+<<<<<<< HEAD
 <!-- please login -->
 <div
   *ngIf="!email"
   class="d-flex align-items-center justify-content-center login-required"
+=======
+<!-- header -->
+<app-header></app-header>
+<!-- please login -->
+<div
+  *ngIf="!email"
+  class="d-flex align-items-center justify-content-center"
+>>>>>>> 8c08a43b65d17692221f92e776ba12e9af1c2c8c
   style="min-height: 100vh"
 >
   <div class="text-center">
@@ -11,6 +20,7 @@
       width="350px"
     />
     <p class="fs-1">
+<<<<<<< HEAD
       <span class="fw-bolder" style="color: var(--color-gold-light);">Please Login ! </span>
     </p>
     <p class="lead">Get access to your Orders, Wishlist and Recommendations</p>
@@ -21,10 +31,21 @@
 <!-- Loading state -->
 <div
   *ngIf="email && isLoading"
+=======
+      <span class="text-danger fw-bolder">Please Login ! </span>
+    </p>
+    <p class="lead">Get access to your Orders, Wishlist and Recommendations</p>
+    <a routerLink="" class="btn btn-danger">Go Home</a>
+  </div>
+</div>
+<div
+  *ngIf="email && cart.length == 0"
+>>>>>>> 8c08a43b65d17692221f92e776ba12e9af1c2c8c
   class="d-flex align-items-center justify-content-center"
   style="min-height: 100vh"
 >
   <div class="text-center">
+<<<<<<< HEAD
     <div class="spinner-border text-gold" role="status" style="color: var(--color-gold);">
       <span class="visually-hidden">Loading...</span>
     </div>
@@ -58,24 +79,38 @@
   style="min-height: 100vh"
 >
   <div class="text-center">
+=======
+>>>>>>> 8c08a43b65d17692221f92e776ba12e9af1c2c8c
     <img
       src="https://cdni.iconscout.com/illustration/premium/thumb/empty-cart-2130356-1800917.png"
       alt=""
       width="350px"
     />
     <p class="fs-1">
+<<<<<<< HEAD
       <span class="fw-bolder" style="color: var(--color-gold-light);">Your cart is empty ! </span>
+=======
+      <span class="text-danger fw-bolder">Your cart is empty ! </span>
+>>>>>>> 8c08a43b65d17692221f92e776ba12e9af1c2c8c
     </p>
     <p class="lead">
       Looks like you have not added anything to your cart,<br />
       Go ahead and explore our great foods.
     </p>
+<<<<<<< HEAD
     <a routerLink="" class="btn btn-action">Go Home</a>
   </div>
 </div>
 
 <!-- cart section -->
 <div *ngIf="email && !isLoading && products.length != 0" class="container mt-5">
+=======
+    <a routerLink="" class="btn btn-danger">Go Home</a>
+  </div>
+</div>
+<!-- cart section -->
+<div *ngIf="email && cart.length != 0" class="container mt-5">
+>>>>>>> 8c08a43b65d17692221f92e776ba12e9af1c2c8c
   <div class="row">
     <div class="mt-5"></div>
     <div class="col-lg-8">
@@ -83,21 +118,35 @@
       <ul class="rounded p-0">
         <li
           *ngFor="let product of products"
+<<<<<<< HEAD
           class="cart-item"
           [class.removing]="removingProductId === product.id"
         >
           <div class="col text-center">
             <img
+=======
+          class="d-flex justify-content-around text-danger align-items-center shadow p-3 mb-2 bg-white rounded border-bottom"
+        >
+          <div class="col text-center">
+            <img
+              class="rounded-4 border border-light-subtle border-3"
+              width="70px"
+>>>>>>> 8c08a43b65d17692221f92e776ba12e9af1c2c8c
               [src]="product.image"
               [alt]="product.title"
             />
           </div>
           <div class="col">
+<<<<<<< HEAD
             <a class="btn cart-item-title text-start">
+=======
+            <a class="btn fw-bold text-danger text-start">
+>>>>>>> 8c08a43b65d17692221f92e776ba12e9af1c2c8c
               {{ product.title }}
             </a>
           </div>
           <div class="col">
+<<<<<<< HEAD
             <div class="quantity-stepper">
               <button
                 class="quantity-btn"
@@ -117,6 +166,26 @@
           <div class="col cart-item-price">₹{{ product.price }}</div>
           <div class="col">
             <a (click)="removeFromCart(product.id)" class="btn" style="color: var(--color-burgundy);"
+=======
+            <select
+              class="form-select"
+              aria-label="Default select example"
+              style="max-width: 4rem"
+              (change)="onChange($event, product.id)"
+            >
+              <option
+                *ngFor="let i of select"
+                [ngValue]="i"
+                [selected]="i == product.count"
+              >
+                {{ i }}
+              </option>
+            </select>
+          </div>
+          <div class="col fw-bold">₹{{ product.price }}</div>
+          <div class="col">
+            <a (click)="removeFromCart(product.id)" class="text-danger btn"
+>>>>>>> 8c08a43b65d17692221f92e776ba12e9af1c2c8c
               ><i class="fa-solid fa-trash"></i
             ></a>
           </div>
@@ -126,6 +195,7 @@
         <button (click)="emptyCart(email)" class="btn btn-secondary">
           Empty Cart
         </button>
+<<<<<<< HEAD
         <a routerLink="" class="btn btn-action ms-5">Shop More</a>
       </div>
     </div>
@@ -140,6 +210,25 @@
           No of Items: <span>{{ products.length }}</span>
         </p>
         <h5 class="grand-total" [class.highlight]="grandTotalHighlight">
+=======
+        <a routerLink="" class="btn btn-danger ms-5">Shop More</a>
+      </div>
+    </div>
+    <div class="col-lg-1"></div>
+    <div
+      class="col-lg-3 shadow p-3 mb-5 bg-white rounded"
+      style="height: min-content"
+    >
+      <div>
+        <p>
+          Total:
+          <span class="text-danger"> {{ total }} </span>
+        </p>
+        <p>
+          No of Items: <span>{{ cart.length }}</span>
+        </p>
+        <h5 class="animate__animated animate__shakeX">
+>>>>>>> 8c08a43b65d17692221f92e776ba12e9af1c2c8c
           Grant Total:₹<span>{{ total }}</span>
         </h5>
       </div>
@@ -147,10 +236,21 @@
       <hr />
 
       <div class="mt-2">
+<<<<<<< HEAD
         <button
           routerLink="/check-out"
           style="float: right"
           class="btn btn-action"
+=======
+        <!-- <a href="" style="text-decoration: none; float: left"
+          ><i class="fa-solid fa-tag"></i> offers</a
+        > -->
+
+        <button
+          routerLink="/check-out"
+          style="float: right"
+          class="btn btn-danger"
+>>>>>>> 8c08a43b65d17692221f92e776ba12e9af1c2c8c
         >
           Check Out
         </button>

@@ -1,5 +1,6 @@
 <!-- Navigation-->
 <nav
+<<<<<<< HEAD
   class="navbar fixed-top navbar-expand-lg"
   id="mainNav"
   [class.scrolled]="isScrolled"
@@ -11,6 +12,15 @@
         <circle cx="12" cy="7" r="4"/>
       </svg>
       <span class="brand-text" [class.animate-fade-up]="logoAnimated">Noir Table</span>
+=======
+  class="navbar fixed-top navbar-expand-lg navbar-light shadow-sm"
+  id="mainNav"
+>
+  <div class="container px-4 px-lg-5">
+    <i class="fa-solid fa-burger fa-2x text-danger"></i>
+    <a class="fst-italic navbar-brand text-danger fw-bolder" routerLink="">
+      &nbsp; YO! JUNK
+>>>>>>> 8c08a43b65d17692221f92e776ba12e9af1c2c8c
     </a>
 
     <button
@@ -38,12 +48,16 @@
           </form>
         </li>
         <li class="nav-item">
+<<<<<<< HEAD
           <a class="nav-link" routerLink="/menu"
             >&nbsp; &nbsp;<i class="fa-solid fa-utensils"></i> Menu</a
           >
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="/wish-list"
+=======
+          <a class="nav-link active" routerLink="/wish-list"
+>>>>>>> 8c08a43b65d17692221f92e776ba12e9af1c2c8c
             >&nbsp; &nbsp;<i class="fa-solid fa-heart"></i> Wish List</a
           >
         </li>
@@ -51,14 +65,22 @@
           <a class="btn" routerLink="/view-cart">
             <i class="fa-solid fa-cart-plus me-1"></i>
             Cart
+<<<<<<< HEAD
             <span class="badge cart-badge" [class.animate]="cartBadgeAnimation">{{
+=======
+            <span class="badge bg-dark text-white ms-1 rounded-pill">{{
+>>>>>>> 8c08a43b65d17692221f92e776ba12e9af1c2c8c
               cartCount
             }}</span>
           </a>
         </li>
         <li *ngIf="!username" class="nav-item">
           <a
+<<<<<<< HEAD
             class="nav-link dropdown-item btn"
+=======
+            class="nav-link active dropdown-item btn"
+>>>>>>> 8c08a43b65d17692221f92e776ba12e9af1c2c8c
             data-bs-toggle="modal"
             data-bs-target="#staticBackdrop"
             >&nbsp; &nbsp;<i class="fa-solid fa-user"></i> Login</a
@@ -66,7 +88,11 @@
         </li>
         <li *ngIf="username" class="nav-item dropdown">
           <a
+<<<<<<< HEAD
             class="nav-link dropdown-toggle rounded-pill px-3 mb-1 mb-lg-0"
+=======
+            class="nav-link active dropdown-toggle bg rounded-pill px-3 mb-1 mb-lg-0"
+>>>>>>> 8c08a43b65d17692221f92e776ba12e9af1c2c8c
             role="button"
             data-bs-toggle="dropdown"
             aria-expanded="false"

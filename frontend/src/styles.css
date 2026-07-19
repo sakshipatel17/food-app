@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 :root {
   --color-bg: #0E0C0A;
   --color-surface: #17130F;
@@ -169,3 +170,14 @@ input, select, textarea {
   opacity: 0;
   animation: fadeInScale 700ms var(--ease-out) 150ms forwards;
 }
+=======
+/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Quicksand&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital@1&display=swap");
+
+body {
+  font-family: "Quicksand", "sans-serif";
+  background: #fadddc !important;
+}
+/* font-family: 'Londrina Solid', cursive; */
+>>>>>>> 8c08a43b65d17692221f92e776ba12e9af1c2c8c

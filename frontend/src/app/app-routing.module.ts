@@ -9,9 +9,12 @@ import { ViewProductComponent } from './view-product/view-product.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { ProfileComponent } from './profile/profile.component';
 import { PaymentComponent } from './payment/payment.component';
+<<<<<<< HEAD
 import { OrderConfirmationComponent } from './order-confirmation/order-confirmation.component';
 import { MyOrdersComponent } from './my-orders/my-orders.component';
 import { MenuComponent } from './menu/menu.component';
+=======
+>>>>>>> 8c08a43b65d17692221f92e776ba12e9af1c2c8c
 
 const routes: Routes = [
   {
@@ -24,10 +27,13 @@ const routes: Routes = [
     component: HomeComponent,
   },
   {
+<<<<<<< HEAD
     path: 'menu',
     component: MenuComponent,
   },
   {
+=======
+>>>>>>> 8c08a43b65d17692221f92e776ba12e9af1c2c8c
     path: 'view-product/:id',
     component: ViewProductComponent,
   },
@@ -56,6 +62,7 @@ const routes: Routes = [
     component: PaymentComponent, // ✅ Payment route added here
   },
   {
+<<<<<<< HEAD
     path: 'order-confirmation',
     component: OrderConfirmationComponent,
   },
@@ -64,6 +71,8 @@ const routes: Routes = [
     component: MyOrdersComponent,
   },
   {
+=======
+>>>>>>> 8c08a43b65d17692221f92e776ba12e9af1c2c8c
     path: '**',
     component: PagenotfoundComponent,
   },

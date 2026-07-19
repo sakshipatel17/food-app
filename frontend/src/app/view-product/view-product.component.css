@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .product-detail {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -162,3 +163,13 @@
     font-size: 24px;
   }
 }
+=======
+.text-danger .fa:hover {
+  cursor: pointer;
+}
+
+.card-img-top {
+  height: 450px;
+  object-fit: cover;
+}
+>>>>>>> 8c08a43b65d17692221f92e776ba12e9af1c2c8c

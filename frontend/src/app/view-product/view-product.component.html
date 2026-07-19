@@ -1,5 +1,6 @@
 <!-- header -->
 <app-header></app-header>
+<<<<<<< HEAD
 
 <!-- Error message -->
 <div
@@ -69,11 +70,70 @@
           {{ product.description }}
         </p>
         <div class="product-actions">
+=======
+<!-- Product section-->
+<section class="py-5 mt-5">
+  <div class="container px-3 px-lg-5 my-3">
+    <div class="row gx-4 gx-lg-4 align-items-center">
+      <div class="col-md-5">
+        <img
+          class="card-img-top mb-5 mb-md-0 rounded"
+          [src]="product.image"
+          [alt]="product.title"
+        />
+      </div>
+      <div class="col-md-1"></div>
+      <div class="col-md-6">
+        <h1 class="display-6 fw-bolder text-danger">
+          {{ product.title }}
+          <span
+            *ngIf="!email"
+            class="float-end text-secondary"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+            ><i class="fa fa-heart"></i>
+          </span>
+          <span
+            (click)="removeFromWishlist(product.id)"
+            *ngIf="email && wishlist.indexOf(product.id) >= 0"
+            class="float-end text-danger"
+            ><i class="fa fa-heart-circle-minus"></i>
+          </span>
+          <span
+            (click)="addToWishlist(product.id)"
+            *ngIf="email && wishlist.indexOf(product.id) == -1"
+            class="float-end text-secondary"
+            ><i class="fa fa-heart-circle-plus"></i>
+          </span>
+        </h1>
+        <div class="fs-5 mb-3">
+          <span class="text-decoration-line-through"
+            >₹{{ (product.price + 10).toFixed(2) }}</span
+          >
+          <span> ₹{{ product.price }}</span>
+          <span class="bg-light p-1 rounded-pill ms-5">{{
+            product.category
+          }}</span>
+        </div>
+        <p style="text-align: justify" class="lead">
+          <span class="fs-4 text-danger">Product Features: </span> <br />
+          {{ product.description.slice(0, 250) }}
+        </p>
+        <p class="fs-5">
+          <i class="fa-regular fa-star text-danger me-1"></i>
+          <span>{{ product.rating.rate }}</span>
+        </p>
+        <div class="d-flex">
+>>>>>>> 8c08a43b65d17692221f92e776ba12e9af1c2c8c
           <button
             *ngIf="!email"
             data-bs-toggle="modal"
             data-bs-target="#exampleModal2"
+<<<<<<< HEAD
             class="btn-add-cart"
+=======
+            class="btn btn-danger flex-shrink-0 w-100"
+>>>>>>> 8c08a43b65d17692221f92e776ba12e9af1c2c8c
             type="button"
           >
             <i class="fa-solid fa-cart-plus"></i>
@@ -82,7 +142,11 @@
           <button
             (click)="removeFromCart(product.id)"
             *ngIf="email && cart.indexOf(product.id) >= 0"
+<<<<<<< HEAD
             class="btn-remove-cart"
+=======
+            class="btn btn-danger flex-shrink-0 w-100"
+>>>>>>> 8c08a43b65d17692221f92e776ba12e9af1c2c8c
             type="button"
           >
             <i class="fa-solid fa-ban"></i>
@@ -91,7 +155,11 @@
           <button
             (click)="addToCart(product.id)"
             *ngIf="email && cart.indexOf(product.id) == -1"
+<<<<<<< HEAD
             class="btn-add-cart"
+=======
+            class="btn btn-success flex-shrink-0 w-100"
+>>>>>>> 8c08a43b65d17692221f92e776ba12e9af1c2c8c
             type="button"
           >
             <i class="fa-solid fa-cart-plus"></i>
