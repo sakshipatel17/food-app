@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 .masthead {
   padding: 64px 0;
   margin-bottom: 48px;
@@ -258,23 +257,4 @@
   .wishlist-heart.pulse {
     animation: none;
   }
-=======
-.card img {
-  opacity: 1;
-  -webkit-transition: 0.3s ease-in-out;
-  transition: 0.3s ease-in-out;
-  height: 200px;
-  object-fit: cover;
-}
-.card img:hover {
-  opacity: 0.5;
-}
-.card:hover {
-  cursor: pointer;
-  transform: scale(1.05);
-  transition: 0.3s ease-in-out;
-}
-.app-badge {
-  margin-left: -120px;
->>>>>>> 8c08a43b65d17692221f92e776ba12e9af1c2c8c
 }

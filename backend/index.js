@@ -6,11 +6,7 @@ const jwt = require("jsonwebtoken");
 
 server.use(
   cors({
-<<<<<<< HEAD
     origin: process.env.FRONTEND_URL || "http://localhost:4200",
-=======
-    origin: "http://localhost:4200",
->>>>>>> 8c08a43b65d17692221f92e776ba12e9af1c2c8c
   })
 );
 server.use(express.json());
@@ -36,11 +32,7 @@ const jwtMiddleware = (req, res, next) => {
   console.log(token);
   try {
     //verify token
-<<<<<<< HEAD
     const data = jwt.verify(token, process.env.JWT_SECRET || "B68DC6BECCF4A68C3D8D78FE742E2");
-=======
-    const data = jwt.verify(token, "B68DC6BECCF4A68C3D8D78FE742E2");
->>>>>>> 8c08a43b65d17692221f92e776ba12e9af1c2c8c
     req.email = data.email;
     console.log("valid token");
     next();
@@ -184,7 +176,6 @@ server.post("/addToCheckout", jwtMiddleware, (req, res) => {
       res.status(result.statusCode).json(result);
     });
 });
-<<<<<<< HEAD
 
 // NEW CART ROUTES
 
@@ -283,5 +274,3 @@ server.post("/api/newsletter/subscribe", (req, res) => {
     res.status(result.statusCode).json(result);
   });
 });
-=======
->>>>>>> 8c08a43b65d17692221f92e776ba12e9af1c2c8c

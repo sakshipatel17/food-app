@@ -11,14 +11,10 @@ export class ViewProductComponent implements OnInit {
   productId: any;
   product: any;
   email: string = '';
-<<<<<<< HEAD
   userId: string = '';
   wishlistMsg: string = '';
   errorMessage: string = '';
   successMessage: string = '';
-=======
-  wishlistMsg: string = '';
->>>>>>> 8c08a43b65d17692221f92e776ba12e9af1c2c8c
 
   wishlist: number[] = [];
   cart: number[] = [];
@@ -38,10 +34,7 @@ export class ViewProductComponent implements OnInit {
     });
 
     this.email = localStorage.getItem('email') || '';
-<<<<<<< HEAD
     this.userId = this.email; // Using email as userId for now
-=======
->>>>>>> 8c08a43b65d17692221f92e776ba12e9af1c2c8c
     this.wishlist = this.api.apiWishlist;
     this.cart = this.api.apiCart;
     if (this.email) {
@@ -90,7 +83,6 @@ export class ViewProductComponent implements OnInit {
   }
 
   addToCart(productId: any) {
-<<<<<<< HEAD
     this.errorMessage = '';
     this.successMessage = '';
     
@@ -123,22 +115,6 @@ export class ViewProductComponent implements OnInit {
       (result: any) => {
         console.log(result);
         this.errorMessage = 'Could not add to cart. Please try again.';
-=======
-    this.api.addToCart(this.email, productId, 1).subscribe(
-      // success case
-      (result: any) => {
-        console.log(result);
-        this.wishlistMsg = result.message;
-        this.api.wishlistMsg = result.message;
-        this.getMyItems();
-        setTimeout(() => {
-          this.wishlistMsg = '';
-        }, 5000);
-      },
-      // error msg
-      (result: any) => {
-        this.wishlistMsg = result.error.message;
->>>>>>> 8c08a43b65d17692221f92e776ba12e9af1c2c8c
       }
     );
   }

@@ -1,10 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
-<<<<<<< HEAD
 import { environment } from '../../environments/environment';
-=======
->>>>>>> 8c08a43b65d17692221f92e776ba12e9af1c2c8c
 
 const options = {
   headers: new HttpHeaders(),
@@ -21,12 +18,9 @@ export class ApiService {
   apiCart: number[] = [];
   products: any[] = [];
   cartCount = new BehaviorSubject<any[]>([]);
-<<<<<<< HEAD
   
   // API base URL - uses environment variable
   private apiUrl = environment.apiUrl;
-=======
->>>>>>> 8c08a43b65d17692221f92e776ba12e9af1c2c8c
 
   constructor(private http: HttpClient) {}
 
@@ -38,11 +32,7 @@ export class ApiService {
       password,
     };
     // server call to register an account and return response to register component
-<<<<<<< HEAD
     return this.http.post(`${this.apiUrl}/register`, body);
-=======
-    return this.http.post('http://localhost:3000/register', body);
->>>>>>> 8c08a43b65d17692221f92e776ba12e9af1c2c8c
   }
 
   //login
@@ -52,29 +42,17 @@ export class ApiService {
       password,
     };
     // server call to register an account and return response to login component
-<<<<<<< HEAD
     return this.http.post(`${this.apiUrl}/login`, body);
-=======
-    return this.http.post('http://localhost:3000/login', body);
->>>>>>> 8c08a43b65d17692221f92e776ba12e9af1c2c8c
   }
 
   //all products api
   getAllProducts() {
-<<<<<<< HEAD
     return this.http.get(`${this.apiUrl}/all-products`);
-=======
-    return this.http.get('http://localhost:3000/all-products');
->>>>>>> 8c08a43b65d17692221f92e776ba12e9af1c2c8c
   }
 
   //view products api
   viewProduct(productId: any) {
-<<<<<<< HEAD
     return this.http.get(`${this.apiUrl}/view-product/${productId}`);
-=======
-    return this.http.get('http://localhost:3000/view-product/' + productId);
->>>>>>> 8c08a43b65d17692221f92e776ba12e9af1c2c8c
   }
 
   // appending token to http headee
@@ -98,11 +76,7 @@ export class ApiService {
       productId,
     };
     return this.http.post(
-<<<<<<< HEAD
       `${this.apiUrl}/addToWishlist/`,
-=======
-      'http://localhost:3000/addToWishlist/',
->>>>>>> 8c08a43b65d17692221f92e776ba12e9af1c2c8c
       body,
       this.appendToken()
     );
@@ -115,11 +89,7 @@ export class ApiService {
       productId,
     };
     return this.http.put(
-<<<<<<< HEAD
       `${this.apiUrl}/removeFromWishlist/`,
-=======
-      'http://localhost:3000/removeFromWishlist/',
->>>>>>> 8c08a43b65d17692221f92e776ba12e9af1c2c8c
       body,
       this.appendToken()
     );
@@ -133,11 +103,7 @@ export class ApiService {
       count,
     };
     return this.http.post(
-<<<<<<< HEAD
       `${this.apiUrl}/addToCart/`,
-=======
-      'http://localhost:3000/addToCart/',
->>>>>>> 8c08a43b65d17692221f92e776ba12e9af1c2c8c
       body,
       this.appendToken()
     );
@@ -151,11 +117,7 @@ export class ApiService {
       count,
     };
     return this.http.put(
-<<<<<<< HEAD
       `${this.apiUrl}/updateCartItemCount/`,
-=======
-      'http://localhost:3000/updateCartItemCount/',
->>>>>>> 8c08a43b65d17692221f92e776ba12e9af1c2c8c
       body,
       this.appendToken()
     );
@@ -168,11 +130,7 @@ export class ApiService {
       productId,
     };
     return this.http.put(
-<<<<<<< HEAD
       `${this.apiUrl}/removeFromCart/`,
-=======
-      'http://localhost:3000/removeFromCart/',
->>>>>>> 8c08a43b65d17692221f92e776ba12e9af1c2c8c
       body,
       this.appendToken()
     );
@@ -184,11 +142,7 @@ export class ApiService {
       email,
     };
     return this.http.put(
-<<<<<<< HEAD
       `${this.apiUrl}/emptyCart/`,
-=======
-      'http://localhost:3000/emptyCart/',
->>>>>>> 8c08a43b65d17692221f92e776ba12e9af1c2c8c
       body,
       this.appendToken()
     );
@@ -218,11 +172,7 @@ export class ApiService {
       detailes,
     };
     return this.http.post(
-<<<<<<< HEAD
       `${this.apiUrl}/addToCheckout/`,
-=======
-      'http://localhost:3000/addToCheckout/',
->>>>>>> 8c08a43b65d17692221f92e776ba12e9af1c2c8c
       body,
       this.appendToken()
     );
@@ -230,17 +180,12 @@ export class ApiService {
 
   getWishlist(email: any) {
     return this.http.get(
-<<<<<<< HEAD
       `${this.apiUrl}/getWishlist/${email}`,
-=======
-      'http://localhost:3000/getWishlist/' + email,
->>>>>>> 8c08a43b65d17692221f92e776ba12e9af1c2c8c
       this.appendToken()
     );
   }
   getMyOrders(email: any) {
     return this.http.get(
-<<<<<<< HEAD
       `${this.apiUrl}/getMyOrders/${email}`,
       this.appendToken()
     );
@@ -373,9 +318,6 @@ export class ApiService {
     return this.http.post(
       `${this.apiUrl}/api/orders/create-card-order`,
       body,
-=======
-      'http://localhost:3000/getMyOrders/' + email,
->>>>>>> 8c08a43b65d17692221f92e776ba12e9af1c2c8c
       this.appendToken()
     );
   }

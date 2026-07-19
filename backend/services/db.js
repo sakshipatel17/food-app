@@ -34,7 +34,6 @@ const User = mongoose.model("User", {
   wishlist: [],
 });
 
-<<<<<<< HEAD
 // to store cart detailes
 const Cart = mongoose.model("Cart", {
   userId: String,
@@ -86,9 +85,4 @@ module.exports = {
   Cart,
   Order,
   Newsletter,
-=======
-module.exports = {
-  Product,
-  User,
->>>>>>> 8c08a43b65d17692221f92e776ba12e9af1c2c8c
 };
